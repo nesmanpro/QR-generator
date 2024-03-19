@@ -22,7 +22,12 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
 }
+/* main {
+    display: flex;
+    justify-content: center;
+} */
 
 img {
     height: 30px;
@@ -50,8 +55,8 @@ a{
 .qr-text{
     padding: 1rem;
     display: block;
-    background: var(--tone1);
-    border: 2px solid var(--darker);
+    background: var(--darker);
+    border: 1px solid var(--tone1);
     border-radius: 5px;
     width: 100%;
     margin: 0.5rem 0 1rem 0;
@@ -64,7 +69,7 @@ a{
 }
 
 #qr-code {
-    height: 50px;
+    height: 500px;
     width: 500px;
     display: flex;
     justify-content: center;
@@ -115,3 +120,38 @@ a{
 
 }
 
+.action-container {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+@media (max-width: 512px){
+    body {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    #qr-code {
+        width: 95vw;
+        height: 65vh;
+    }
+
+    #qr-code img, #qr-code canvas{
+        max-width: 95vw !important;
+        max-height: 95vh !important;
+    }
+
+    .btn {
+        min-width: unset;
+    }
+}
+
+@media (max-width: 350px) {
+    .action-container {
+        flex-direction: column;
+    }
+
+    .share-btn {
+    }
+}
