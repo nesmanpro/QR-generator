@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <title>QR code Generator</title>
 </head>
 
 <body>
 
-    <section>
+    <section class="sect">
         <div class="row">
             <input type="color" class="light" value="#ffffff">
             <input type="color" class="dark">
@@ -24,7 +24,7 @@
                 <option value="700">700x700</option>
                 <option value="800">800x800</option>
                 <option value="900">900x900</option>
-                <option value="1000">1000x100 0</option>
+                <option value="1000">1000x1000</option>
             </select>
         </div>
         <input type="text" class="qr-text" placeholder="Enter QR Text Here">
@@ -32,18 +32,18 @@
         <div class="action-container">
             <a href="#" class="download btn" download="QRCode">
                 <span>Download</span>
-                <img src="download.svg" alt="">
+                <img src="./img/download.svg" alt="">
             </a>
             <button class="btn share-btn">
                 <span>Share</span>
-                <img src="share.svg" alt="">
+                <img src="./img/share.svg" alt="">
             </button>
         </div>
     </section>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script src="./script.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
