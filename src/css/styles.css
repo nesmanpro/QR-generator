@@ -1,5 +1,5 @@
 :root {
-    --bg: #fbf7d6;
+    --bg: #f4f6f0;
     --darker: #343440;
     --tone1: #dd4559;
     --tone2: #fa9d2b;
@@ -24,12 +24,8 @@ body{
     justify-content: center;
     margin: 0 auto;
 }
-/* main {
-    display: flex;
-    justify-content: center;
-} */
 
-img {
+.img {
     height: 30px;
 }
 
@@ -55,8 +51,8 @@ a{
 .qr-text{
     padding: 1rem;
     display: block;
-    background: var(--darker);
-    border: 1px solid var(--tone1);
+    background: var(--bg);
+    border: 2px solid var(--tone1);
     border-radius: 5px;
     width: 100%;
     margin: 0.5rem 0 1rem 0;
@@ -64,17 +60,19 @@ a{
 }
 
 .qr-text::placeholder {
-    color: var(--bg);
+    color: var(--darker);
     font-weight: 500;
 }
 
 #qr-code {
     height: 500px;
     width: 500px;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid var(--darker);
+    /* border: 2px solid var(--darker); */
+    background-color: var(--darker);
 }
 
 #qr-code img, #qr-code canvas {
@@ -91,9 +89,9 @@ a{
 .sizes {
     width: 32%;
     height: 40px;
-    color: var(--bg);
-    background: var(--darker);
-    border: 1px solid var(--tone1);
+    color: var(--darker);
+    background: var(--bg);
+    border: 2px solid var(--tone1);
     border-radius: 5px;
     outline: none;
 }
@@ -105,19 +103,28 @@ a{
     font-size: 0.9rem;
     font-weight: 500;
     max-width: 200px;
-    padding: 14px 30px;
-    border-radius: 5px;
+    padding: 8px 2px;
+    border-radius: 50px;
+    border: 2px solid var(--tone1);
     display: flex;
-    gap: 1.5rem;
+    stroke: var(--darker) !important;
+    gap: 0.5rem;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     flex: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--tone1);
+    fill: var(--tone1);
+    stroke: var(--tone1);
 }
 
 .btn img {
-    width: 30px;
-
+    width: 25px;
 }
 
 .action-container {

@@ -14,10 +14,10 @@ sizes.addEventListener('change', handleSize);
 shareBtn.addEventListener('click', handleShare);
 
 const defaultURL = 'http://www.nesmanpro.com';
-let colorDark = '#fff',
-    colorLight = '000',
+let colorLight = '#fff',
+    colorDark = '#000',
     text = defaultURL,
-    size = 300;
+    size = 400;
 
 function handleDarkColor(e) {
     colorDark = e.target.value;
@@ -40,7 +40,7 @@ function handleQRText(e) {
 
 async function generateQRCode() {
     qrContainer.innerHTML = '';
-    new generateQRCode('qr-code', {
+    new QRCode('qr-code', {
         text,
         height: size,
         width: size,
@@ -56,8 +56,14 @@ async function handleShare() {
             const base64url = await resolveDataUrl();
             const blob = await (await fetch(base64url)).blob();
             const file = new File([blob], 'QRCode.png', {
-                type: blob.type
+                type: blob.type,
             });
+
+            await navigator.share({
+                file: [file],
+                title: text
+            });
+
 
         } catch (error) {
             alert('Your browser doesnt support sharing');
@@ -65,20 +71,24 @@ async function handleShare() {
     }, 100)
 }
 
-function handleSize() {
+function handleSize(e) {
     size = e.target.value;
     generateQRCode();
 }
 
 function resolveDataUrl() {
-    return new Promise((res, rej) => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
             const img = document.querySelector('#qr-code img');
             if (img.currentSrc) {
-                res(img.currentSrc);
+                resolve(img.currentSrc);
                 return;
             }
             const canvas = document.querySelector('canvas');
-        })
-    })
+            resolve(canvas.toDataURL());
+        }, 50);
+    });
 }
+
+generateQRCode();
+
